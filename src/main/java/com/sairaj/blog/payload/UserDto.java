@@ -3,6 +3,8 @@ package com.sairaj.blog.payload;
 import java.util.HashSet;
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.sairaj.blog.entities.Role;
 
 import jakarta.validation.constraints.Email;
@@ -54,9 +56,12 @@ public class UserDto {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	
+	@JsonIgnore
 	public String getPassword() {
 		return password;
 	}
+	@JsonProperty
 	public void setPassword(String password) {
 		this.password = password;
 	}

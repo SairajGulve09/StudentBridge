@@ -17,7 +17,7 @@ public class CategoryDto {
 	@Size(min = 3)
 	private String categoryName;
 	@NotBlank
-	@Size(max = 15)
+	
 	private String categoryDecription;
 	
 	

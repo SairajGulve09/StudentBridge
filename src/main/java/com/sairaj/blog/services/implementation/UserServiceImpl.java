@@ -119,7 +119,7 @@ public class UserServiceImpl implements UserService{
 
 	@Override
 	public UserDto registerNewUser(UserDto userDto) {
-		User user = this.modelMapper.map(userDto, User.class);
+		User user = this.dtoToUser(userDto);
 		
 		//encode password
 		user.setPassword(this.passwordEncoder.encode(user.getPassword()));
@@ -128,7 +128,7 @@ public class UserServiceImpl implements UserService{
 		Role role = this.roleRepository.findById(AppConstants.NORMAL_ROLE).get();
 		user.getRoles().add(role);
 		User newUser = this.userRepo.save(user);
-		return this.modelMapper.map(newUser, UserDto.class);
+		return this.userToDto(newUser);
 	}
 
 }

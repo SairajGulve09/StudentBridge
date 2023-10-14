@@ -1,5 +1,6 @@
 package com.sairaj.blog.controllers;
 
+import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,17 +11,21 @@ import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.sairaj.blog.entities.User;
 import com.sairaj.blog.payload.JwtAuthRequest;
 import com.sairaj.blog.payload.JwtAuthResponse;
 import com.sairaj.blog.payload.UserDto;
 import com.sairaj.blog.security.JwtHelper;
 import com.sairaj.blog.services.UserService;
+
+import jakarta.validation.Valid;
 
 
 
@@ -40,6 +45,9 @@ public class AuthController {
     
     @Autowired
     private UserService userService;
+    
+    @Autowired 
+    private ModelMapper mapper;
 
     private Logger logger = LoggerFactory.getLogger(AuthController.class);
 
@@ -47,14 +55,18 @@ public class AuthController {
     @PostMapping("/login")
     public ResponseEntity<JwtAuthResponse> login(@RequestBody JwtAuthRequest request) {
 
+    	//System.out.println("hellooooo");
         this.doAuthenticate(request.getEmail(), request.getPassword());
+    	//System.out.println("hellooooo2");
 
 
         UserDetails userDetails = userDetailsService.loadUserByUsername(request.getEmail());
         String token = this.helper.generateToken(userDetails);
+    	//System.out.println("hellooooo3");
 
         JwtAuthResponse response = JwtAuthResponse.builder()
                 .token(token)
+                .user(this.mapper.map((User)userDetails, UserDto.class))
                 .username(userDetails.getUsername()).build();
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
@@ -81,7 +93,7 @@ public class AuthController {
     //register new user api
     
     @PostMapping("/register")
-    public ResponseEntity<UserDto> registerUser(@RequestBody UserDto userDto)
+    public ResponseEntity<UserDto> registerUser(@RequestBody @Valid UserDto userDto)
     {
     	UserDto registeredUser = this.userService.registerNewUser(userDto);
     	return new ResponseEntity<UserDto>(registeredUser,HttpStatus.CREATED);

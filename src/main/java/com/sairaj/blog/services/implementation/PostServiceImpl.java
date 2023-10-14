@@ -63,10 +63,11 @@ public class PostServiceImpl implements PostService {
 		// TODO Auto-generated method stub
 		
 		Post post = this.postRepository.findById(postId).orElseThrow(()-> new ResourceNotFoundException("Post", "post id", postId));
-		
+		Category category =  this.categoryRepo.findById(postDto.getCategory().getCategoryId()).get();
 		post.setTitle(postDto.getTitle());
 		post.setPostContent(postDto.getPostContent());
 		post.setImageName(postDto.getImageName());
+		post.setCategory(category);
 		
 		Post updatedPost = this.postRepository.save(post);
 		
