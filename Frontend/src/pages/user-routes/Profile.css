@@ -1,0 +1,63 @@
+/* Profile.css */
+
+.profile-container {
+  margin-top: 50px;
+}
+
+.profile-card {
+  text-align: center;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ffc107; /* Thin yellow border */
+  transition: all 0.3s ease; /* Add transition for smooth effect */
+}
+
+/* Add pop effect on hover */
+.profile-card:hover {
+  transform: scale(1.05); /* Increase size by 5% on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Increase box shadow on hover */
+}
+
+.profile-title {
+  font-size: 35px;
+  color: #ffc107; /* LinkedIn Blue */
+  margin-bottom: 20px;
+}
+
+.profile-avatar {
+  width: 150px;
+  height: 150px;
+  margin-bottom: 20px;
+  border: 2px solid #666; /* Yellow border */
+  border-radius: 50%;
+}
+
+.profile-name {
+  font-size: 30px;
+  margin-bottom: 8px;
+}
+
+.profile-mail {
+  font-size: 18px;
+  color: #ffc107; /* LinkedIn Blue */
+  margin-bottom: 8px;
+}
+
+.profile-location {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.profile-about {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #333;
+}
+
+.profile-hr {
+  margin: 20px 0;
+  border-color: #333; /* Yellow line */
+}

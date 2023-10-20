@@ -1,0 +1,13 @@
+/* PostCard.css */
+
+.post-card {
+    /* your existing styles for the post card */
+    /* ... */
+    transition: all 0.3s ease; /* Add transition for smooth effect */
+  }
+  
+  .post-card:hover {
+    transform: scale(1.02); /* Increase size by 5% on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Increase box shadow on hover */
+  }
+  

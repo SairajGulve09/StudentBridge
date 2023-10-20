@@ -1,0 +1,72 @@
+.landing-page {
+    text-align: center;
+    padding: 100px 0;
+    background-color: #f8f9fa;
+    min-height: 100vh;
+  }
+  
+  h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #ffc107;
+    margin-bottom: 20px;
+  }
+  
+  p {
+    font-size: 1.25rem;
+    margin-bottom: 40px;
+    color: #495057;
+  }
+  
+  .features {
+    margin-top: 50px;
+  }
+  
+  .features h2 {
+    font-size: 2rem;
+    color: #ffc107;
+  }
+  
+  .features p {
+    font-size: 1rem;
+    color: #ffffff;
+    margin-bottom: 40px;
+  }
+  
+  /* Button Styles */
+  .btn-primary {
+    background-color: #ffc107;
+    border: none;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0056b3;
+  }
+  
+  .btn-secondary {
+    background-color: #6c757d;
+    border: none;
+  }
+  
+  .btn-secondary:hover {
+    background-color: #545b62;
+  }
+  
+
+  .title {
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-image: linear-gradient(to right, #f83600 0%, #f9d423 100%);
+    background-size: 200% auto;
+    animation: gradientAnimation 5s ease infinite; /* Adjust the duration (5s in this example) as needed */
+  }
+  
+  @keyframes gradientAnimation {
+    0% {
+      background-position: 100% 0;
+    }
+    100% {
+      background-position: -100% 0;
+    }
+  }
+  

@@ -1,0 +1,14 @@
+/* CustomNavbar.css */
+
+/* Navbar items alignment */
+.ml-auto {
+    margin-left: auto;
+  }
+  
+  /* Navbar links styles (optional) */
+  .navbar-items {
+    display: flex;
+    align-items: center;
+  }
+  
+  

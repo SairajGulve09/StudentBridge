@@ -1,0 +1,41 @@
+.about-page {
+    background-color: #f7f7f7;
+    padding: 50px 0;
+  }
+  
+  .about-title {
+    font-size: 2.5rem;
+    color: #ffc107;
+    margin-bottom: 30px;
+    animation: fadeInUp 1s ease;
+  }
+  
+  .about-content {
+    font-size: 1.2rem;
+    color: #555;
+    animation: fadeIn 1s ease;
+  }
+  
+  /* Keyframe animations */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
